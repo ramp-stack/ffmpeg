@@ -17,10 +17,12 @@ features = ["build-portable", "codec", "format", "software-scaling"]
 ```
 
 The FFmpeg 9.0.2 source is bundled in `ramp-ffmpeg-sys`, so building does not download FFmpeg or require
-Git. Building requires a native C compiler, Make, and libclang, plus NASM for x86 targets; Apple
-targets also require the corresponding Xcode SDK. The executable does not require FFmpeg shared
-libraries at runtime. `build-portable` uses baseline CPU settings instead of tuning the binary for
-the build machine.
+Git. Building requires a native C compiler and Make, plus NASM for x86 targets; Apple targets use
+the corresponding Xcode compiler and SDK with pregenerated Rust bindings. The executable does not
+require FFmpeg shared libraries at runtime. `build-portable` uses baseline CPU settings instead of
+tuning the binary for the build machine.
+
+Enable `generate-bindings` when adding a target or regenerating bindings; this requires libclang.
 
 FFmpeg retains its own license; the bundled configuration uses FFmpeg's LGPL components unless
 additional licensing or external codec features are enabled. See [FFmpeg licensing](https://ffmpeg.org/legal.html).

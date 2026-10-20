@@ -34,6 +34,7 @@ static = ["ffmpeg-sys-next/static"]
 non-exhaustive-enums = ["ffmpeg-sys-next/non-exhaustive-enums"]
 build  = ["static", "ffmpeg-sys-next/build"]
 build-portable = ["build", "ffmpeg-sys-next/build-portable"]
+generate-bindings = ["ffmpeg-sys-next/generate-bindings"]
 
 # licensing
 build-license-gpl      = ["ffmpeg-sys-next/build-license-gpl"]
