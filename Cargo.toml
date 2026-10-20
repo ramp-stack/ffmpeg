@@ -19,7 +19,9 @@ categories    = ["multimedia"]
 name = "ffmpeg_next"
 
 [features]
-default = ["codec", "device", "filter", "format", "software-resampling", "software-scaling"]
+default = [
+    "build-portable", "codec", "device", "filter", "format", "software-resampling", "software-scaling",
+]
 
 # ffmpeg<xy> are obsolete features kept for backward compatibility purposes and
 # don't do anything anymore (equivalents are automatically specified through

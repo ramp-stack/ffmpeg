@@ -6,7 +6,8 @@ original [ffmpeg](https://crates.io/crates/ffmpeg) crate by [meh.](https://githu
 This release preserves the `ffmpeg-next 9.0.0` API and uses
 [ramp-ffmpeg-sys](https://github.com/ramp-stack/ffmpeg-sys) for corrected Apple framework linking.
 
-Enable `build-portable` to build and statically link FFmpeg without an installed FFmpeg library:
+Default features include `build-portable`, which builds and statically links FFmpeg without an
+installed FFmpeg library. To select only decoding, formats, and scaling:
 
 ```toml
 [dependencies.ffmpeg-next]
@@ -27,7 +28,9 @@ Enable `generate-bindings` when adding a target or regenerating bindings; this r
 FFmpeg retains its own license; the bundled configuration uses FFmpeg's LGPL components unless
 additional licensing or external codec features are enabled. See [FFmpeg licensing](https://ffmpeg.org/legal.html).
 
-For builds against an existing FFmpeg installation, see the
+To use an existing FFmpeg installation, set `default-features = false` and enable
+`generate-bindings` plus the required components. This generates bindings for that installation's
+ABI rather than using the bundled FFmpeg 9.0.2 bindings. See the
 [upstream build notes](https://github.com/zmwangx/rust-ffmpeg/wiki/Notes-on-building).
 
 Documentation:
