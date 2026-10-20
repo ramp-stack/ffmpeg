@@ -1,6 +1,6 @@
 [package]
 name    = "ramp-ffmpeg"
-version = "9.0.1"
+version = "9.0.2"
 build   = "build.rs"
 edition = "2024"
 
@@ -36,6 +36,7 @@ static = ["ffmpeg-sys-next/static"]
 non-exhaustive-enums = ["ffmpeg-sys-next/non-exhaustive-enums"]
 build  = ["static", "ffmpeg-sys-next/build"]
 build-portable = ["build", "ffmpeg-sys-next/build-portable"]
+bundled-nasm = ["ffmpeg-sys-next/bundled-nasm"]
 generate-bindings = ["ffmpeg-sys-next/generate-bindings"]
 
 # licensing
@@ -123,5 +124,5 @@ optional = true
 
 [dependencies.ffmpeg-sys-next]
 package = "ramp-ffmpeg-sys"
-version = "9.0.2"
+version = "9.0.3"
 default-features = false

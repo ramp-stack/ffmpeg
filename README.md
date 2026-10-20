@@ -12,16 +12,20 @@ installed FFmpeg library. To select only decoding, formats, and scaling:
 ```toml
 [dependencies.ffmpeg-next]
 package = "ramp-ffmpeg"
-version = "9.0.1"
+version = "9.0.2"
 default-features = false
 features = ["build-portable", "codec", "format", "software-scaling"]
 ```
 
 The FFmpeg 9.0.2 source is bundled in `ramp-ffmpeg-sys`, so building does not download FFmpeg or require
-Git. Building requires a native C compiler and Make, plus NASM for x86 targets; Apple targets use
-the corresponding Xcode compiler and SDK with pregenerated Rust bindings. The executable does not
-require FFmpeg shared libraries at runtime. `build-portable` uses baseline CPU settings instead of
-tuning the binary for the build machine.
+Git. Building requires a native C compiler and Make; Apple targets use the corresponding Xcode
+compiler and SDK with pregenerated Rust bindings. The executable does not require FFmpeg shared
+libraries at runtime. `build-portable` uses baseline CPU settings instead of tuning the binary for
+the build machine.
+
+For Intel targets, `build-portable` also enables `bundled-nasm`, which builds NASM from bundled
+source for the build host and preserves FFmpeg's assembly optimizations. ARM targets do not build
+NASM, and no separate NASM installation is needed.
 
 Enable `generate-bindings` when adding a target or regenerating bindings; this requires libclang.
 
